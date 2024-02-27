@@ -1,17 +1,21 @@
 # Поле класса
 При описании класса задаются поля, которые подразделяются на:
 
-
-- [Поля данных](#поля-данных)
-- [Поле содежит вложенный подобъект](#поля-данных)
-- [Поле содержит список объектов]
+- [Поле класса](#поле-класса)
+  - [Поля данных](#поля-данных)
+  - [Поля, содержащие вложенные объекты](#поля-содержащие-вложенные-объекты)
+  - [Поля, содержащие списки объектов](#поля-содержащие-списки-объектов)
+  - [Тэги и спецификаторы полей](#тэги-и-спецификаторы-полей)
+  - [Константные и статические поля](#константные-и-статические-поля)
 
 
 Общий формат описания поля:
 
-*@tags*
 
-[*название_поля**] : [*тип_поля*] = [*значение_по_умолчанию*];
+>*@tags*
+>
+>[*название_поля**] : [*тип_поля*] = [*значение_по_умолчанию*];
+
 
 Название поля является обязательным.
 
@@ -33,24 +37,23 @@ field3: MyTestObject;
 
 Поля могут быть следющих типов:
 
-- boolean, bool 
-- int, integer, int32
-- int8, int16, int32, int64 
-- uint8, uint16, uint32, uint64
-- float
-- double
-
-- string
-- bytearray
-- date
-- time
-- datetime
-- timeperiod
-- file
-- json
-- script
-- idobject
-- var
+* boolean, bool 
+* int, integer, int32
+* int8, int16, int32, int64 
+* uint8, uint16, uint32, uint64
+* float
+* double
+* string
+* bytearray
+* date
+* time
+* datetime
+* timeperiod
+* file
+* json
+* script
+* idobject
+* var
 
 Примеры задания значений по-умолчанию для полей разных типов:
 
@@ -84,9 +87,11 @@ class MyObjectType  {
 class MyChildType {
     name: string;
 }
+
 class MyChildTypeEx extends MyChildType {
     name: string;
 }
+
 class MyObjectType  {
 
     child1: MyChildType;
@@ -159,7 +164,6 @@ class MyObjectType  {
 
     const AccessFlag1: uint32 = 0x00000001; 
     static AccessFlag2: uint32 = 0x00000002; 
-
 
 }
 ```
