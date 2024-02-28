@@ -9,6 +9,26 @@ packets:
     TestBaseType2:
       path: ./TestBasePacket/TestBaseType2.js
       version: 1.0.1
+  TestSysPacket:
+    TestSpaceRoot:
+      path: ./SysPacket/TestSpaceRoot.js
+      version: 1.0.0
+    TestRootData:
+      path: ./SysPacket/TestRootData.js
+      version: 1.0.0
+    TestSpaceData:
+      path: ./SysPacket/TestSpaceData.js
+      version: 1.0.0
+    TestSharedData:
+      path: ./SysPacket/TestSharedData.js
+      version: 1.0.0
+    TestUserData:
+      path: ./SysPacket/TestUserData.js
+      version: 1.0.0
+  TestMyPacket:
+    TestDerived:
+      path: ./TestMyPacket/TestDerived.js
+      version: 1.0.0
 
 rights:
   simple:
@@ -21,3 +41,9 @@ logs:
     filter: -debug -info -warning -critical
   scriptLog:
     filter: -debug -info -warning -critical
+
+spaceRoot: TestSpaceRoot
+rootData: TestRootData
+spaceData: TestSpaceData
+sharedData: TestSharedData
+userData: TestUserData

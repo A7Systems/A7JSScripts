@@ -148,7 +148,7 @@ logs:
 
 `spaceRoot` - корневой элемент space-а. Содержит `rootData`, `spaceData`, `sharedData`, список пользователей с `userData`
 
-`rootData` - коренвой объект для рабочих данных space-а
+`rootData` - корневой объект для рабочих данных space-а
 
 `spaceData` - объект, содержащий настройки для данного space-а
 
