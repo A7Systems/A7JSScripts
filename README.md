@@ -5,3 +5,7 @@ A7 JS scripts documentations and examples
 2. [Конфигурация](./Configuraiton.md)
 3. [Функции](./Function.md)
 4. [Члены класса](./Member.md)
+
+
+## Примеры конфигураций
+1. [Простая конфигурация](./examples/simpleConfig/README.md)
