@@ -1,7 +1,12 @@
 # Конфигурация
 
-Описание конфигурации содержится в файле configuration.yaml.
-Пример конфигурации доступен [тут](404)
+В этом документе описывается конфигурация в том виде, с которым работает конкетный сервер. 
+Сервер должен иметь локально доступ ко всем зависимостям. 
+
+Общее описание конфигурации содержится в [этом документе](https://github.com/A7Systems/A7JSScripts/blob/main/Configuraiton.md). Установщик(шедуллер), скачав такую конфигурацию, должен разрешить все зависимости, скачать необходимые пакеты, и настроить все окружение сервера. 
+А сервер получает конечное описание конфигурации, которое содержится в этом документе.
+
+Оно содержится в файле configuration.yaml.
 
 В нем необходимо описать:
 
@@ -14,42 +19,21 @@ version: 1.0.0
 
 ## Список пакетов и классов
 
-Описывается список входящих в конфигурации пакетов, и источников, откуда можно скачать эти пакеты.
-Ссылка должна вести на пакет определенной версии.
+Описывается список входящих в конфигурации пакетов, классов с указанием версий, и пути к исходникам.
 
 
 ```YAML
 packets:
-  Packet1:
-      path: /.../Downloads/CleverBase_v1_1  # absolute path 
-  Packet2:
-      path: github.com/A7Systems/Project1/packets/packet2@master
-  Packet3:
-      path: a7systems.org/downloads/Project1/packets/packet2/v1
-      transport: https
-
+  CleverBase:
+    CleverMarketItem:
+        path: ./configuration/CleverBase/CleverMarketItem.js
+        version: 1.0.0
+    CleverBaseRT:
+        path: ./configuration/CleverBase/CleverBaseRT.js
+        version: 1.0.0
 ```
 
-Тип источника указывается в `transport` и может быть:
-- local
-- http/https
-- ftp
-- github
-- mercurial
-- s3 (?)
-- webdav(?)
-
-Для github для указания конкретной версии можно использовать следующие спецификаторы в конце ссылки:
-
-|Описание|Спецификатор|
-|:-|:-|
-|Определенная версия|@v1.2.8|
-|Определенный коммит (его хэш-сумма)|@c783230|
-|Определенная ветка, псоледний коммит в ней|@master|
-|Префикс версии|@v2|
-|Условие для версии|@>=2.1.5|
-|Последний коммит в текущей ветке|@latest|
-
+Если указана MD5 хэш-сумма файла, она будет проверяться при загрузке плагина сервером
 
 ## Ссылка на базовую конфигурацию
 
@@ -57,7 +41,9 @@ packets:
 
 ```YAML
 baseConfiguration: BaseConfigName 1.0.0
+
 ```
+
 
 ## Зависимости
 
@@ -66,7 +52,9 @@ baseConfiguration: BaseConfigName 1.0.0
 ```YAML
 dependencies: 
     BasePacket:
-        path: github.com/A7Systems/ProjectX/packets/packet1@latest
+    BasePacketType:
+        path: ./ExPackets/BasePacketType.js
+        version: 1.0.0
 
 ```
 
@@ -77,7 +65,7 @@ dependencies:
 ```YAML
 addons: 
     reportTemplate1:
-        path: github.com/A7Systems/Project1/reportsAddon/templates/template1@latest
+        path: ./reports/template1.xlsx
 
 
 ```
@@ -89,18 +77,14 @@ addons:
 ```YAML
 plugins:
   libJooaClientPlugin:
-    linux:
-      x86x64: /.../Downloads/CleverBase_v1_1/linuxgcc/JooaClientPlugin.so 
-      arm: /.../Downloads/CleverBase_v1_1/linuxarm/JooaClientPlugin.so 
-    android:
-      x86:  /.../Downloads/CleverBase_v1_1/androidx86/JooaClientPlugin.so 
-      x64:  /.../Downloads/CleverBase_v1_1/androidx64/JooaClientPlugin.so 
+    path: ./defplugins/libJooaClientPlugind.so
+    hash: 2974100031197931cf398c1bee14ca48
   libCleverBaseRTPlugin:
-    linux:
-      ...
+    path: ./defplugins/libCleverBaseRTPlugind.so
+    hash: 5ecc2fd1e520ff08fc5f5ede3c985f15
 ```
 
-Т.к. бинарные файлы зависят от конкретной платформы, указывается операционная система и платформа.
+
 
 ## Экстеншены
 
@@ -110,11 +94,9 @@ plugins:
 ```YAML
 extensions:
   sipExtension:
-    path:
-      linux: 
-         x86x64: /.../Downloads/CleverBase_v1_1/linuxgcc/bin/sipExtension 
-         arm: /.../Downloads/CleverBase_v1_1/linuxarm/bin/sipExtension 
+    path: ./bin/sipExtension
     args: 5060 
+    hash: 2974100031197931cf398c1bee14ca48
     objectType: A7SipDevice
 ```
 
@@ -126,9 +108,7 @@ extensions:
 ```YAML
 rights:
   simple:
-      linux: 
-         x86x64: /.../Downloads/CleverBase_v1_1/linuxgcc/plugins/righs.so 
-         arm: /.../Downloads/CleverBase_v1_1/linuxarm/plugins/righs.so 
+    path: ./defplugins/rightsPlugin.so
 ```
 
 ## Настройка системы логирования по умолчанию.
@@ -171,6 +151,7 @@ logs:
 
 
 ## Типы для корневых и специальных объектов 
+
 
 `rootData` - корневой объект для рабочих данных space-а
 
