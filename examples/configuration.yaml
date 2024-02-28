@@ -9,3 +9,15 @@ packets:
     TestBaseType2:
       path: ./TestBasePacket/TestBaseType2.js
       version: 1.0.1
+
+rights:
+  simple:
+    path: ./defplugins/rightsPlugin.so
+
+logs:
+  consoleLog: off
+  fileLog:
+    path: ./Logs/
+    filter: -debug -info -warning -critical
+  scriptLog:
+    filter: -debug -info -warning -critical
