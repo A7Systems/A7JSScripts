@@ -53,6 +53,7 @@ class MyObjectType  {
     func1(){
         return 41;
     }
+
     func2(){
         console.log( func1() + 1 );
     }
@@ -68,12 +69,12 @@ class MyObjectType  {
 
 ```javaScript
 class MyObjectType  {
+
     name: string;  
 
     constructor(strValue){
         this.name = strValue;
     }
-
 
 }
 
