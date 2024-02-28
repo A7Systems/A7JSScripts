@@ -1,0 +1,11 @@
+name: TestConfig
+version: 1.0.0
+
+packets:
+  TestBasePacket:
+    TestBaseType1:
+      path: ./TestBasePacket/TestBaseType1.js
+      version: 1.0.0
+    TestBaseType2:
+      path: ./TestBasePacket/TestBaseType2.js
+      version: 1.0.1
