@@ -6,31 +6,28 @@
 Общее описание конфигурации содержится в [этом документе](https://github.com/A7Systems/A7JSScripts/blob/main/Configuraiton.md). Установщик(шедуллер), скачав такую конфигурацию, должен разрешить все зависимости, скачать необходимые пакеты, и настроить все окружение сервера. 
 А сервер получает конечное описание конфигурации, которое содержится в этом документе.
 
-Оно содержится в файле configuration.yaml.
-
-В нем необходимо описать:
+Оно находится в файле configuration.yaml и содержит:
 
 ## Название и версия конфигурации
 
 ```YAML
-name: TestClever
+name: TestCleverConfiguration
 version: 1.0.0
+author: A7System
+description: test configuration 
 ```
 
 ## Список пакетов
 
-Описывается список входящих в конфигурации пакетов, классов с указанием версий, и пути к исходникам.
-
+Описывается список входящих в конфигурацию пакетов. 
+Дополнительно может быть указана директорию, где находится пакет, если название не совпадает с названием пакета.
 
 ```YAML
 packets:
   CleverBase:
-    CleverMarketItem:
-        path: ./configuration/CleverBase/CleverMarketItem.js
-        version: 1.0.0
-    CleverBaseRT:
-        path: ./configuration/CleverBase/CleverBaseRT.js
-        version: 1.0.0
+    path: CleverBase/
+    version: 1.0.0
+  CleverDevice:
 ```
 
 Если указана MD5 хэш-сумма файла, она будет проверяться при загрузке плагина сервером

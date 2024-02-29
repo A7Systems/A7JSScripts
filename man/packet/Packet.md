@@ -15,26 +15,22 @@
         └── p1class3.js
     └── SubPacket2
         ├── p2class1.js
-        ├── p2class2.js
+        └── p2class2.js
     └── pmainclass.js
 └── plugin
     └── timerPlugin
-        └── linux
-            └── x68x64
-                └── a7TimerPlugin.so
+        └── a7TimerPlugin.so
 └── lib
     └── specialLib
-        └── linux
-            ├── x68x64
-                └── specialLib.so            
+       └── specialLib.so            
 └── extensions
     └── extensionName
-        └── linux
-            └── x68x64
-                └── extensionNameBin
+        └── extensionNameBin
 ├── initPacket.yaml
-├── README.md
+└── README.md
 ```
+
+
 
 ## Файл initPacket.yaml
 
@@ -82,7 +78,7 @@ source:
 ```YAML
 plugins:
   timerPlugin:
-    path: linux/x86/libTimerPlugind.so
+    path: plugins/linux/x86/libTimerPlugind.so
     hash: 2974100031197931cf398c1bee14ca48
 
 ```
