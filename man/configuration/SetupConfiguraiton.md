@@ -8,8 +8,10 @@
 ## Название и версия конфигурации
 
 ```YAML
-name: TestClever
+name: TestCleverConfiguration
 version: 1.0.0
+author: A7System
+description: test configuration 
 ```
 
 ## Список пакетов 
@@ -21,25 +23,31 @@ version: 1.0.0
 ```YAML
 packets:
   Packet1:
-      path: /.../Downloads/CleverBase_v1_1  # absolute path 
+      source: /.../Downloads/CleverBase_v1_1  # absolute path 
+      transport: local
   Packet2:
-      path: github.com/A7Systems/Project1/packets/packet2@master
+      source: github.com/A7Systems/Project1/packets/packet2@master
+      transport: github
   Packet3:
-      path: a7systems.org/downloads/Project1/packets/packet2/v1
+      source: a7systems.org/downloads/Project1/packets/packet3/v1
       transport: https
 
 ```
 
-Тип источника указывается в `transport` и может быть:
-- local
-- http/https
-- ftp
-- github
-- mercurial
-- s3 (?)
-- webdav(?)
+Настройки доступа:
 
-Для github для указания конкретной версии можно использовать следующие спецификаторы в конце ссылки:
+```YAML
+transport:
+  https:
+    user: <user for basic auth, optional>
+	  pass: <password for basic auth>
+  github:
+	  githubuser: <user name>
+	  githubtoken: <user token>
+
+```
+
+Для `github` для указания конкретной версии можно использовать следующие спецификаторы в конце ссылки:
 
 |Описание|Спецификатор|
 |:-|:-|
@@ -65,63 +73,17 @@ baseConfiguration: BaseConfigName 1.0.0
 
 ```YAML
 dependencies: 
-    BasePacket:
-        path: github.com/A7Systems/ProjectX/packets/packet1@latest
+    SystemPacket:
+        path: github.com/A7Systems/System/system@v2
+    PacketX:
+        path: github.com/A7Systems/ProjectX/packets/packetx@latest
 
-```
-
-## Аддоны
-
-Дополнительные модули, файлы которые используются для работы с данной конфигурацией. Которые не относятся к коду или плагинам
-
-```YAML
-addons: 
-    reportTemplate1:
-        path: github.com/A7Systems/Project1/reportsAddon/templates/template1@latest
-
-
-```
-
-## Плагины
-
-Список плагинов 
-
-```YAML
-plugins:
-  libJooaClientPlugin:
-    linux:
-      x86x64: /.../Downloads/CleverBase_v1_1/linuxgcc/JooaClientPlugin.so 
-      arm: /.../Downloads/CleverBase_v1_1/linuxarm/JooaClientPlugin.so 
-    android:
-      x86:  /.../Downloads/CleverBase_v1_1/androidx86/JooaClientPlugin.so 
-      x64:  /.../Downloads/CleverBase_v1_1/androidx64/JooaClientPlugin.so 
-  libCleverBaseRTPlugin:
-    linux:
-      ...
-```
-
-Т.к. бинарные файлы зависят от конкретной платформы, указывается операционная система и платформа.
-
-## Экстеншены
-
-Список экстеншенов.
-Для каждого экстеншена описывается путь к исполняемому файлу, список аргументов командной строки разделенный пробелами и тип объектов, которые обслуживает этот экстеншен. Необязательные параметры - MD5 хэш-сумма
-
-```YAML
-extensions:
-  sipExtension:
-    path:
-      linux: 
-         x86x64: /.../Downloads/CleverBase_v1_1/linuxgcc/bin/sipExtension 
-         arm: /.../Downloads/CleverBase_v1_1/linuxarm/bin/sipExtension 
-    args: 5060 
-    objectType: A7SipDevice
 ```
 
 
 ## Настройка системы прав
 
-Система прав, которая может быть использована для space-ов для этой конфигурации. 
+Предпочитаемая система прав, которая может быть использована для space-ов этой конфигурации. 
 
 ```YAML
 rights:
@@ -131,52 +93,26 @@ rights:
          arm: /.../Downloads/CleverBase_v1_1/linuxarm/plugins/righs.so 
 ```
 
-## Настройка системы логирования по умолчанию.
-
-Настройка состоит из следующих блоков:
-- `consoleLog` - настройка вывода логов в **stdout**
-  - `enabled` - **`[on/off]`** вывод включен или выключен.
-- `fileLog` - настройка вывода логов в файл.
-  - `enabled` - **[on/off]** вывод включен или выключен.
-  - `path` - путь, по которому будут записаны логи
-
-- tcpLog - настойки удаленного лог-сервера
-  - `enabled` - **[on/off]** вывод включен или выключен.
-  - `host` - адрес удаленного лог-сервера
-  - `port` - порт удаленного лог-сервера
-- `scriptLog` - настройки вывода логов из скриптовой части сервера (например `console.log('message');`)
-
-К каждому типу логов может быть настроен список фильтрации:
-  - `filter` - список фильтрации сообщений разделенный пробелами, попадающих в лог
-    - `debug` - отладочные сообщения
-    - `info` - информационные сообщения
-    - `warning` - предупреждения
-    - `critical` - сообщения о критических ошибках
-
-```YAML
-logs:
-  consoleLog:
-    enabled: off
-  fileLog:
-    enabled: on
-    path: ./Logs/
-    filter: -debug -info
-  tcpLog:
-    enabled: off
-    host: 127.0.0.1
-    port: 10255
-  scriptLog:
-    enabled: on
-```
-
 
 ## Типы для корневых и специальных объектов 
 
-`rootData` - корневой объект для рабочих данных space-а
+`spaceApp` - корневой объект для space-а
 
 `userData` - объект создается для каждого пользователя, для хранения настроек данного пользователя 
 
 ```YAML
-spaceData: CleverHomeSpace
+spaceApp: CleverHomeSpace
 userData: CleverHomeUserdata
 ```
+
+## Инициализирующий скрипт
+
+Скрипт,который выполняется на сервере после загрузки конфигурации:
+
+
+```YAML
+installScript:
+      source: /.../Downloads/installScript.js 
+      transport: local
+```
+

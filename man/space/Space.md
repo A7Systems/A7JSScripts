@@ -14,31 +14,40 @@
 
 ```
 └── spaceRoot
-    └── spaceApp                            # Defined in configuration
-        ├── SpaceAppData
+    └── spaceApp                                
+        ├── spaceObject1
         ├── ...
-        └── SpaceAppData
-    └── users[]
-        └── user[0]
-            ├── userName, lastConnectred
-            ├── userData                    # Defined in configuration
-            ├── userDevices[]
-                ├── androidDevice1
-                └── iosDevice1
-            └── userContacts[]
-        └── user[1]
-            ├── userName, lastConnectred
-            ├── userData    # Defined in configuration
-            ├── userDevices[]
-                └── linuxDevice
-            └── userContacts[]
-    └── systemData
-        ├── extensions[]
+        └── spaceObjectN
+    └── usersList
+        └── users[]
+            └── userObject[0]
+                ├── userName, lastConnected
+                ├── userData                    
+                ├── userDevices[]
+                    ├── androidDevice1
+                    └── iosDevice1
+                └── userConnection
+                    ├── userLogin
+                    ├── lastConnected
+                    └── authContactInfo
+
+            └── userObject[1]
+                ├── userName, lastConnected
+                ├── userData                    
+                ├── userDevices[]
+                    └── linuxDevice
+    ├── extensionsList
+        └── extensions[]
             └── sipExtensionSettings
-        └── systemSettings
-            └── jooaConnection
+    └── System       
+    └── systemSettings
+
 
 ```
+System - получение системной информации
+режим работы - debug/testing/release
+
+
 
 ### Описание списка спейсов на сервере
 
