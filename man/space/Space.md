@@ -51,5 +51,50 @@ System - получение системной информации
 
 ### Описание списка спейсов на сервере
 
+Описание списка спейсов находится в файле `spacelist.yaml`
+
+
+Структура файла:
+
+Список конфигураций:
+
+
+```YAML
+configurations:
+  TestClever:
+    version: 1.0.0
+    location: "./dbodata/testSpace/configuration/"
+    isdefault: true
+  Clever:
+    version: 1.0.0
+    location: "./dbodata/cleverSpace/configuration/"
+```
+
+Список баз данных:
+
+```YAML
+
+dbostorages:
+  main:
+    location: "./dbo"
+    isdefault: true
+
+```
+
+
+```YAML
+
+spaces:
+  testSpace1:
+    configuration: TestClever
+    dbostorage: main
+    rights: standart
+    rootId: "0:0"
+  testSpace2:
+    configuration: TestClever
+    dbostorage: main
+    rights: standart
+    rootId: "0:25"
+```
 
 
