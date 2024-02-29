@@ -123,11 +123,11 @@ logs:
 ## Типы для корневых и специальных объектов 
 
 
-`rootData` - корневой объект для рабочих данных space-а
+`spaceApp` - корневой объект для space-а
 
 `userData` - объект создается для каждого пользователя, для хранения настроек данного пользователя 
 
 ```YAML
-spaceData: CleverHomeSpace
+spaceApp: CleverHomeSpace
 userData: CleverHomeUserdata
 ```

@@ -2,10 +2,9 @@
 
 Описание пакета после установки. Описание пакета для установки находится в [SetupPacket](./SetupPacket.md)
 
-Описание находится в файле initPacket.yaml, который должен находится в корневой папке пакета.
+Описание находится в файле `initPacket.yaml`, который должен находится в корневой папке пакета.
 
 ## Структура каталогов пакета
-
 
 
 ```
@@ -60,11 +59,18 @@ description: Simple test packet
 
 ```YAML
 source:
-  CleverBase:
-    CleverMarketItem:
-        path: CleverBase/CleverMarketItem.js
-    CleverBaseRT:
-        path: CleverBase/CleverBaseRT.js
+  mainP1Class:
+    path: mainClass.js
+  SubPacket1:
+    P1Class1:
+        path: SubPacket1/P1Class1.js
+    P1Class2:
+        path: SubPacket1/P1Class2.js
+  SubPacket2:
+    P2Class1:
+        path: SubPacket2/P2Class1.js
+    P2Class2:
+        path: SubPacket2/P2Class2.js
 ```
 
 
@@ -75,12 +81,10 @@ source:
 
 ```YAML
 plugins:
-  libJooaClientPlugin:
-    path: linux/x86/libJooaClientPlugind.so
+  timerPlugin:
+    path: linux/x86/libTimerPlugind.so
     hash: 2974100031197931cf398c1bee14ca48
-  libCleverBaseRTPlugin:
-    path: linux/x86/libCleverBaseRTPlugind.so
-    hash: 5ecc2fd1e520ff08fc5f5ede3c985f15
+
 ```
 
 
@@ -93,8 +97,10 @@ plugins:
 ```YAML
 extensions:
   sipExtension:
-    path: ./bin/sipExtension
+    path: sipExtension/linux/x86/sipExtension
     args: 5060 
     hash: 2974100031197931cf398c1bee14ca48
     objectType: A7SipDevice
 ```
+
+
