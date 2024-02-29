@@ -26,10 +26,10 @@ packets:
       source: /.../Downloads/CleverBase_v1_1  # absolute path 
       transport: local
   Packet2:
-      source: github.com/A7Systems/Project1/packets/packet2@master
+      source: https://github.com/A7Systems/Project1/packets/packet2@master
       transport: github
   Packet3:
-      source: a7systems.org/downloads/Project1/packets/packet3/v1
+      source: https://a7systems.org/downloads/Project1/packets/packet3/v1
       transport: https
 
 ```
@@ -46,6 +46,9 @@ transport:
 	  githubtoken: <user token>
 
 ```
+
+> :do_not_litter: здесь не должно быть авторизации
+
 
 Для `github` для указания конкретной версии можно использовать следующие спецификаторы в конце ссылки:
 
@@ -68,6 +71,7 @@ baseConfiguration: BaseConfigName 1.0.0
 ```
 
 ## Зависимости
+> :do_not_litter:зависимости описываются у пакетов
 
 Здесь описываются ссылки на внешние пакеты, их версии, которые не входят в данную конфигурации. К этим пакетам можно будет обращаться из кода в данной конфигурации
 
@@ -85,6 +89,9 @@ dependencies:
 
 Предпочитаемая система прав, которая может быть использована для space-ов этой конфигурации. 
 
+
+> :do_not_litter: только название системы прав
+
 ```YAML
 rights:
   simple:
@@ -101,18 +108,16 @@ rights:
 `userData` - объект создается для каждого пользователя, для хранения настроек данного пользователя 
 
 ```YAML
-spaceApp: CleverHomeSpace
-userData: CleverHomeUserdata
+spaceApp: CleverPacket.CleverHomeSpace
+userData: CleverPacket.CleverHomeUserdata
 ```
 
 ## Инициализирующий скрипт
 
 Скрипт,который выполняется на сервере после загрузки конфигурации:
 
-
 ```YAML
-installScript:
+postInstallScript:
       source: /.../Downloads/installScript.js 
       transport: local
 ```
-

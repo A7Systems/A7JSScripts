@@ -44,47 +44,76 @@ source:
 
 ### Плагины
 
-Список плагинов, скомпиллированных под конкретную платформу.
+Список плагинов, скомпилированных под конкретную платформу.
 Необязательные параметры - MD5 хэш-сумма.
 
 ```YAML
 plugins:
-  timerPlugin:
-    path: plugins/linux/x86/libTimerPlugind.so
+  TimerPlugin:
+    version: 3.1.2
+    MD5: DEADBEEFDEADFOOD
+    source: https://github.com/myCoolGitHubRepo@revision
+    transport: github
+    
+  DatePlugin:
+    version: 0.5.3
+    MD5: DEADFOODDEADBEEF
+    source: https://path.to/cool/repo
+    transport: https
 
+  StringPlugin:
+    version: 2.3.6
+    MD5: 8BADFOODFEE1DEAD
+    source: /path/to/my/local/disk
+    transport: local
 ```
-
-
 
 ### Экстеншены
 
 Список экстеншенов.
-Для каждого экстеншена описывается путь к исполняемому файлу, список аргументов командной строки разделенный пробелами и тип объектов, которые обслуживает этот экстеншен. Необязательные параметры - MD5 хэш-сумма
+Для каждого экстеншена описывается версия, тип объектов, которые обслуживает этот экстеншен, источник из которого этот экстеншен можно скачать и тип транспорта. А также настройки экстеншена по умолчанию. Необязательные параметры - MD5 хэш-сумма
 
 ```YAML
 extensions:
   sipExtension:
-    path: sipExtension
-    args: 5060 
+    version: 1.3.5
+    MD5: 8BADFOODFEE1DEAD
+    source: https://github.com/MyCoolName/MyCoolSipExtension.git@latest
+    transport: github
     objectType: A7SipDevice
+    defaultSettings:
+      port: 5060
+      maxSipClients: 100
+
+  rtspExtension:
+    version: 2.3.6
+    MD5: 8BADFOODFEE1DEAD
+    source: /path/to/my/local/disk
+    transport: local
+
+    objectType: A7RTSPDevice
+    defaultSettings:
+      rtpPort: 10500
+      rtcpPort: 10501
 ```
-
-
-
-
 
 ### Зависимости
 
 Здесь описываются зависимости пакета от других пакетов.
-При установки пакета проверяются эти зависимости и докачиваются недостающие. 
-Если другие пакеты входят в ту же конфигурацию и данный пакет может быть использован только внутри этой конфигурации, то эту завиимость можно явно не указывать.
+При установке пакета проверяются эти зависимости и докачиваются недостающие. 
+Если другие пакеты входят в ту же конфигурацию и данный пакет может быть использован только внутри этой конфигурации, то эту зависимость можно явно не указывать. Но так лучше не делать.
 
 
 
 ```YAML
 dependencies: 
-    BasePacket:
-        path: github.com/A7Systems/ProjectX/packets/packet1@latest
+  BasePacket:
+    source: https://github.com/MyCoolName/MyPacket1Repo.git@latest
+    transport: github
+  AnotherPacket:
+    version: 5.8.1
+    source: http://path.to/myCoolHttprepo
+    transport: https
 ```
 
 ### Аддоны
@@ -93,8 +122,13 @@ dependencies:
 
 ```YAML
 addons: 
-    reportTemplate1:
-        path: github.com/A7Systems/Project1/reportsAddon/templates/template1@latest
+  reportTemplate1:
+    source: https://github.com/A7Systems/reportsAddonRepo.git@latest
+    transport: github
+  reportTemplate2:
+    version: 5.5.5
+    source: /path/to/my/hard/disk
+    transport: local
 
 
 ```
