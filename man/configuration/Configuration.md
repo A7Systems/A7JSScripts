@@ -17,7 +17,7 @@ name: TestClever
 version: 1.0.0
 ```
 
-## Список пакетов и классов
+## Список пакетов
 
 Описывается список входящих в конфигурации пакетов, классов с указанием версий, и пути к исходникам.
 
@@ -68,36 +68,6 @@ addons:
         path: ./reports/template1.xlsx
 
 
-```
-
-## Плагины
-
-Список плагинов 
-
-```YAML
-plugins:
-  libJooaClientPlugin:
-    path: ./defplugins/libJooaClientPlugind.so
-    hash: 2974100031197931cf398c1bee14ca48
-  libCleverBaseRTPlugin:
-    path: ./defplugins/libCleverBaseRTPlugind.so
-    hash: 5ecc2fd1e520ff08fc5f5ede3c985f15
-```
-
-
-
-## Экстеншены
-
-Список экстеншенов.
-Для каждого экстеншена описывается путь к исполняемому файлу, список аргументов командной строки разделенный пробелами и тип объектов, которые обслуживает этот экстеншен. Необязательные параметры - MD5 хэш-сумма
-
-```YAML
-extensions:
-  sipExtension:
-    path: ./bin/sipExtension
-    args: 5060 
-    hash: 2974100031197931cf398c1bee14ca48
-    objectType: A7SipDevice
 ```
 
 
