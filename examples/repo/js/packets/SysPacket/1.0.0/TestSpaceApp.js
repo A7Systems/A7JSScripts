@@ -1,4 +1,5 @@
 packet SysPacket;
+packet TestMyPacket;
 
 @version 1.0
 @author bc2098
