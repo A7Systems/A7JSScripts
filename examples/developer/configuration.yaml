@@ -16,12 +16,25 @@ packets:
     version: 1.0.0
     repo: myLocalRepo
 
+  UniqueCustomPacket:
+    version: 199.2.6
+    repo: customRepo
+    
 rights:
   simple:
     version: 1.0.0
 
 spaceApp: SysPacket.TestSpaceApp
 userData: SysPacket.TestUserData
+
+# список каких-то суперкастомных репозиториев которые по какой-то неведомой причине никто не знает
+# возможно при установке этой конфигурации эти репозитории должны добавляться в repolist.yaml сервера
+repo:
+  customRepo:
+    source: https://site.to/custom/repo
+    transport: https
+
+
 
 # postInstallScript:
   # source:
