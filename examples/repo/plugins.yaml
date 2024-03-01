@@ -1,0 +1,9 @@
+TimerPlugin:
+  amd64:
+    linux:
+      version: 1.2.3
+      MD5: DEADF00D
+  arm64:
+    linux:
+      version: 1.2.4
+      MD5: FEEDCAFE
