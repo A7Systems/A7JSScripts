@@ -4,5 +4,13 @@ packet SysPacket;
 @author bc2098
 
 class TestSpaceApp {
-    
+    nameField: string = "TestSpaceApp"
+    nameChangeCount: int = 0;
+
+    objectField: TestDerived = TestDerived;
+
+    printName() {
+        console.log(this.nameField);
+        this.nameChangeCount++;
+    }
 }

@@ -1,0 +1,16 @@
+name: TestMyPacket
+version: 1.0.0
+author: bc2098
+description: My packet derived from TestBasePacket packet
+
+source:
+  TestDerived:
+    file: TestDerived.js
+
+plugins:
+  TimerPlugin:
+    version: 3.1.2
+
+dependencies:
+  TestBasePacket:
+    version: 1.0.0

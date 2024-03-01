@@ -4,5 +4,9 @@ packet TestBasePacket;
 @author bc2098
 
 class TestDerived extends TestBaseType1 {
-    
+    name: string;
+    enabled: boolean = true;
+
+    @override
+    nameField: string = "TestDerived";
 }

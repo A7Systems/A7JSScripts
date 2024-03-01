@@ -1,0 +1,11 @@
+name: TestBasePacket
+version: 1.0.0
+author: bc2098
+description: Base packet
+
+source:
+  TestBaseType1:
+    file: TestBaseType1.js
+  TestBaseType2:
+    file: TestBaseType2.js
+

@@ -1,0 +1,14 @@
+name: SysPacket
+version: 1.0.0
+author: bc2098
+description: System packet
+
+source:
+  TestSpaceApp:
+    file: TestSpaceApp.js
+  TestUsedData:
+    file: TestUserData.js
+
+plugins:
+  TimerPlugin:
+    version: 3.1.2

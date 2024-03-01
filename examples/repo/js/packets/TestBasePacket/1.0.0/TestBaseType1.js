@@ -4,5 +4,5 @@ packet TestBasePacket;
 @author bc2098
 
 class TestBaseType1 {
-    
+    nameField: string = "TestBaseType1";
 }
