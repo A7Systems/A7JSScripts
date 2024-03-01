@@ -1,0 +1,18 @@
+#Пакеты, доступные в этом репозитории 
+SysPacket:
+  version: 1.0.0
+  author: bc2098
+  description: System packet with SpaceApp and userdata types
+
+TestBasePacket:
+  version: 1.0.0
+  author: bc2098
+  description: Packet with basic types
+
+TestMyPacket:
+  version: 1.0.0
+  author: bc2098
+  description: Packed depends from TestBasePacket
+  dependencies:
+    - TestBasePacket:
+      version: greaterOrEqual 1.0.0

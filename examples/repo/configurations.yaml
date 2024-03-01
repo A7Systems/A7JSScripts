@@ -1,0 +1,21 @@
+# Конфигурации, доступные в этом репозитории
+simple:
+  version: 1.0.0
+  author: bc2098
+  description: Simple test configuration
+
+moreComplex:
+  version: 1.0.0
+  author: bc2098
+  description: More complex configuration
+  dependencies:
+    - simple:
+      version: graterOrEqual 1.0.0
+
+moreComplex:
+  version: 1.0.1
+  author: bc2098
+  description: More complex configuration
+  dependencies:
+    - simple:
+      version: graterOrEqual 1.0.0

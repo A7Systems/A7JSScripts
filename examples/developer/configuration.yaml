@@ -1,0 +1,28 @@
+name: simple
+version: 1.0.0
+author: bc2098
+description: Simple test configuration, builds from different packet sources
+
+packets:
+  SysPacket:
+    version: 1.0.0
+    repo: myHttpRepo
+
+  TestBasePacket:
+    version: 1.0.0
+    repo: myHttpRepo
+
+  TestMyPacket:
+    version: 1.0.0
+    repo: myLocalRepo
+
+rights:
+  simple:
+    version: 1.0.0
+
+spaceApp: SysPacket.TestSpaceApp
+userData: SysPacket.TestUserData
+
+# postInstallScript:
+  # source:
+  # transport:

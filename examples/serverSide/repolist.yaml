@@ -1,0 +1,16 @@
+ #список репозиториев доступных серверу
+ myLocalrepo:
+  transport: local
+  source: /codding/Clever/CleverJSRepo
+  description: Репо на диске сервера
+
+myHttpRepo:
+  transport: https
+  source: https://95.213.153.196/cleverrepo
+  description: Репо на хттп сервере с авторизацией
+  auth:
+    login: mylogin
+    password: mypassword
+
+myGitRepo:
+  #????
