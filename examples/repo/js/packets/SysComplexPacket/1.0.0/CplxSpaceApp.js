@@ -15,6 +15,12 @@ class CplxSpaceApp {
     rtStringField: string;
     rtObjectField: object;
 
+    @inmemory
+    inMemoryField: string;
+
+    @pulse
+    pulseField: string;
+
     constructor() {
         this.rtObjectField = new RtObjectClass();
     }
@@ -44,5 +50,14 @@ class CplxSpaceApp {
         }
 
         return this.rtObjectField.arrayVar[idx];
+    }
+
+    getValueFromRtMap(keyString) {
+        if(!this.rtObjectField) {
+            console.log("rtObjectFeld is empty");
+            return null;
+        }
+
+        return this.rtObjectField.mapVar[keyString];
     }
 }
