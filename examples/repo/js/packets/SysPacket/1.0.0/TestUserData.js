@@ -1,5 +1,6 @@
 @dbo
 packet SysPacket;
+import TestBasePacket;
 
 @version 1.0
 @author bc2098 
