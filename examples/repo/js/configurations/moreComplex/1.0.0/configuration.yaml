@@ -1,10 +1,10 @@
-name: simple
+name: moreComplex
 version: 1.0.0
 author: bc2098
-description: test configuration
+description: test configuration, more complex
 
 packets:
-  SysPacket:
+  SysComplexPacket:
     version: 1.0.0
 
   TestBasePacket:
@@ -13,12 +13,15 @@ packets:
   TestMyPacket:
     version: 1.0.0
 
+  RtPacket
+    version: 1.0.0
+    
 rights:
   simple:
     version: 1.0.0
 
-spaceApp: SysPacket.TestSpaceApp
-userData: SysPacket.TestUserData
+spaceApp: SysComplexPacket.CplxSpaceApp
+userData: SysComplexPacket.CplxUserData
 
 # postInstallScript:
   # source:

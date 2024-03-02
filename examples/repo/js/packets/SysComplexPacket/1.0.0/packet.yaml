@@ -1,0 +1,14 @@
+name: SysComplexPacket
+version: 1.0.0
+author: bc2098
+description: System packet, more complex
+
+source:
+  CplxSpaceApp:
+    file: CplxSpaceApp.js
+  CplxUsedData:
+    file: CplxUserData.js
+
+plugins:
+  TimerPlugin:
+    version: 3.1.2

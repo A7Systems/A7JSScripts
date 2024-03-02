@@ -1,3 +1,4 @@
+@dbo
 packet TestBasePacket;
 
 @version 1.0

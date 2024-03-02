@@ -1,0 +1,12 @@
+name: RtPacket
+version: 1.0.0
+author: bc2098
+description: RT packet
+
+source:
+  RtObjectClass:
+    file: RtObjectClass.js
+
+plugins:
+  TimerPlugin:
+    version: 3.1.2

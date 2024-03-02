@@ -12,10 +12,10 @@ moreComplex:
     - simple:
       version: graterOrEqual 1.0.0
 
-moreComplex:
-  version: 1.0.1
-  author: bc2098
-  description: More complex configuration
-  dependencies:
-    - simple:
-      version: graterOrEqual 1.0.0
+# moreComplex:
+#   version: 1.0.1
+#   author: bc2098
+#   description: More complex configuration
+#   dependencies:
+#     - simple:
+#       version: graterOrEqual 1.0.0
